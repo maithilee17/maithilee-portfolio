@@ -1,0 +1,30 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.code-workspace
+
+# Local agent and workspace state
+.agents/
+.codex/
+
+# Secrets and private credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+credentials*
+secrets*
+
+# Temporary and generated files
+node_modules/
+__pycache__/
+*.log
+*.tmp
+*.bak
+~$*
