@@ -4,7 +4,7 @@ A responsive, accessibility-conscious portfolio for Maithilee Bhatkar, a Compute
 
 ## Live site
 
-- Website: <https://maithilee17.github.io/maithilee-portfolio/>
+- Website: <https://maithilee-bhatkar-portfolio-2026.socialocean6.chatgpt.site/>
 - Source repository: <https://github.com/maithilee17/maithilee-portfolio>
 
 ## Technology
@@ -73,9 +73,9 @@ The contact form is intentionally frontend-only. It validates fields locally and
 
 To enable message delivery later, connect a verified form service or backend, document its privacy behavior, and replace the local-only submit handler only after testing the real response states.
 
-## GitHub Pages deployment
+## Deployment
 
-The site is deployed from the `main` branch and repository root. All assets use relative paths, so the project works under the GitHub Pages repository subpath.
+The verified public deployment is hosted at the Sites URL above. The source is also maintained in GitHub on the `main` branch. All assets use relative paths, so GitHub Pages can also host the repository after Pages is enabled in **Settings > Pages > Deploy from a branch > main > / (root)**.
 
 For future updates:
 
@@ -90,12 +90,12 @@ git push origin main
 
 Stage only intended files. Never commit passwords, API keys, access tokens, `.env` files, private keys, or unrelated personal documents. Anything committed to this public repository—including the resume and contact details—can be viewed or copied by others.
 
-After pushing:
+After pushing to GitHub:
 
-1. Open the repository's **Actions** tab and wait for the Pages deployment to complete.
-2. Open <https://maithilee17.github.io/maithilee-portfolio/>.
-3. Hard-refresh if an older cached version appears.
-4. Verify navigation, project filters, external links, images, and the resume download.
+1. Verify the commit on the repository's `main` branch.
+2. If GitHub Pages has been enabled, wait for its Pages deployment to finish.
+3. For the connected Sites deployment, rebuild the `dist/` folder from the root files and publish a new Site version.
+4. Open the applicable public URL and verify navigation, project filters, external links, images, and the resume download.
 
 ## Pre-publishing checklist
 
