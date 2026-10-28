@@ -4,7 +4,7 @@
   document.documentElement.classList.add('js');
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const mobileBreakpoint = window.matchMedia('(max-width: 48rem)');
+  const mobileBreakpoint = window.matchMedia('(max-width: 70rem)');
   const menuButton = document.querySelector('[data-menu-toggle]');
   const navigation = document.querySelector('[data-nav]');
   const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
@@ -122,7 +122,8 @@
   const contactForm = document.querySelector('[data-contact-form]');
 
   if (contactForm) {
-    const fields = Array.from(contactForm.querySelectorAll('input, textarea'));
+    const fields = Array.from(contactForm.querySelectorAll('input:not([name="website"]), textarea'));
+    const honeypot = contactForm.querySelector('[name="website"]');
     const formStatus = contactForm.querySelector('[data-form-status]');
 
     const messageFor = (field) => {
@@ -145,24 +146,42 @@
     fields.forEach((field) => {
       field.addEventListener('input', () => {
         if (field.getAttribute('aria-invalid') === 'true') showFieldState(field);
-        if (formStatus) formStatus.textContent = '';
+        if (formStatus) {
+          formStatus.textContent = '';
+          formStatus.classList.remove('is-error', 'is-ready');
+        }
       });
       field.addEventListener('blur', () => showFieldState(field));
     });
 
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();
+      if (honeypot?.value) {
+        if (formStatus) {
+          formStatus.textContent = 'Unable to validate this message.';
+          formStatus.classList.add('is-error');
+          formStatus.classList.remove('is-ready');
+        }
+        return;
+      }
+
       const results = fields.map(showFieldState);
       const firstInvalid = fields.find((field, index) => !results[index]);
 
       if (firstInvalid) {
-        if (formStatus) formStatus.textContent = 'Please correct the highlighted fields.';
+        if (formStatus) {
+          formStatus.textContent = 'Please correct the highlighted fields.';
+          formStatus.classList.add('is-error');
+          formStatus.classList.remove('is-ready');
+        }
         firstInvalid.focus();
         return;
       }
 
       if (formStatus) {
-        formStatus.textContent = 'Thanks! Your message has been validated. This demo does not send or store messages. Please contact me using the email or LinkedIn links above.';
+        formStatus.textContent = 'Your message is ready. This static portfolio does not send or store messages. Please email me using the contact link above.';
+        formStatus.classList.add('is-ready');
+        formStatus.classList.remove('is-error');
       }
     });
   }
