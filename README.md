@@ -1,6 +1,6 @@
 # Maithilee Bhatkar — Portfolio
 
-A responsive, accessibility-conscious portfolio for Maithilee Bhatkar, a Computer Engineering student, full-stack developer, and AI/ML enthusiast. The site presents education, technical skills, scholastic achievements, five projects, leadership experience, coursework, and verified contact links.
+A responsive, accessibility-conscious portfolio for Maithilee Bhatkar, a Computer Engineering student, full-stack developer, and AI/ML enthusiast. The site presents education, technical skills, scholastic achievements, five projects, leadership experience, coursework, and verified contact details.
 
 ## Live site
 
@@ -31,6 +31,8 @@ portfolio/
 │   └── favicon.svg
 ├── resume/
 │   └── Maithilee-Resume.pdf
+├── robots.txt
+├── sitemap.xml
 ├── .gitignore
 ├── .nojekyll
 └── README.md
@@ -45,6 +47,8 @@ portfolio/
 - Social Media and Marketing Head and IIC Representative leadership roles
 - Eight core Computer Engineering subjects plus Embedded Systems coursework
 - GitHub, LinkedIn, LeetCode, email, phone, and downloadable resume
+
+The Contact section shows the email address and LinkedIn handle as selectable, non-interactive text. GitHub, LeetCode, and phone retain their existing links. The hero's professional-profile shortcuts remain available.
 
 Unavailable project URLs are displayed as pending rather than linked to invented destinations. FinAssist AI is described as a proposed evidence-aware architecture without claiming production readiness. AgentShield is labeled as a group project.
 
@@ -69,13 +73,28 @@ Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
 
 ## Contact form behavior
 
-The contact form is intentionally frontend-only. It validates fields locally and includes a hidden honeypot as basic spam protection, but it does not send or store messages. Its ready-state message directs visitors to the real email link and never claims submission succeeded.
+The contact form is intentionally frontend-only. It validates fields locally and includes a hidden honeypot as basic spam protection, but it does not send or store messages. Its ready-state message directs visitors to use the displayed email address and never claims submission succeeded.
 
 To enable message delivery later, connect a verified form service or backend, document its privacy behavior, and replace the local-only submit handler only after testing the real response states.
 
 ## Deployment
 
 The verified public deployment is hosted at the Sites URL above. The source is also maintained in GitHub on the `main` branch. All assets use relative paths, so GitHub Pages can also host the repository after Pages is enabled in **Settings > Pages > Deploy from a branch > main > / (root)**.
+
+### Custom domain status
+
+The verified Sites URL remains the canonical URL until a custom domain is purchased, attached, validated, and serving HTTPS successfully. The current host supports custom domains and supplies the exact apex A records or subdomain CNAME plus validation records after a hostname is added. No domain purchase or DNS change is performed by this repository.
+
+For a future `maithileebhatkar.com` setup:
+
+1. Purchase the domain from a registrar after confirming its checkout availability.
+2. Explicitly authorize adding the root hostname and, if wanted, `www` to the existing Sites project.
+3. Add only the A/CNAME and validation records returned by the hosting provider to the registrar's DNS panel.
+4. Wait for the host to report the domain and managed SSL certificate as active.
+5. Choose the root domain as canonical and redirect `www` to it (or choose the reverse, but use one canonical origin).
+6. Replace the current Sites URL in `index.html`, `sitemap.xml`, `robots.txt`, and the Personal Portfolio project link, then publish and verify again.
+
+Do not switch canonical metadata to an unverified hostname, because doing so would point search engines to a URL that may not work.
 
 For future updates:
 

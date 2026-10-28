@@ -179,7 +179,7 @@
       }
 
       if (formStatus) {
-        formStatus.textContent = 'Your message is ready. This static portfolio does not send or store messages. Please email me using the contact link above.';
+        formStatus.textContent = 'Your message is ready. This static portfolio does not send or store messages. Please use the email address shown above in your email app.';
         formStatus.classList.add('is-ready');
         formStatus.classList.remove('is-error');
       }

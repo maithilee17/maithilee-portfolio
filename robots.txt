@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maithilee-bhatkar-portfolio-2026.socialocean6.chatgpt.site/sitemap.xml
