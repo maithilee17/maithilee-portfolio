@@ -1,127 +1,131 @@
-# Maithilee Bhatkar — Portfolio
+# Maithilee Bhatkar — Personal Developer Portfolio
 
-A responsive, accessibility-conscious portfolio for Maithilee Bhatkar, a Computer Engineering student, full-stack developer, and AI/ML enthusiast. The site presents education, technical skills, scholastic achievements, five projects, leadership experience, coursework, and verified contact details.
+A clean, modern, typography-first personal portfolio website built with **React**, **Vite**, and **plain CSS**. Designed with an editorial aesthetic, warm neutral backgrounds, and subtle indigo accents.
 
-## Live site
+---
 
-- Website: <https://maithilee-bhatkar-portfolio-2026.socialocean6.chatgpt.site/>
-- Source repository: <https://github.com/maithilee17/maithilee-portfolio>
+## 🚀 Quick Start
 
-## Technology
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-- Semantic HTML5
-- Modern CSS with Grid, Flexbox, custom properties, and responsive breakpoints
-- Vanilla JavaScript with progressive enhancement
-- No package manager, framework, backend, database, or build command
+### 2. Start Local Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-## Project structure
+### 3. Build for Production
+```bash
+npm run build
+```
+The optimized static production files will be output to the `dist/` directory.
 
-```text
+To preview the production build locally:
+```bash
+npm run preview
+```
+
+---
+
+## 📂 Project Structure
+
+```
 portfolio/
-├── index.html
-├── css/style.css
-├── js/script.js
-├── images/
-│   ├── profile.jpeg
-│   ├── timechat.png
-│   ├── finassist.svg
-│   ├── label-lens.svg
-│   ├── portfolio.svg
-│   ├── agentshield.svg
-│   └── favicon.svg
-├── resume/
-│   └── Maithilee-Resume.pdf
-├── robots.txt
-├── sitemap.xml
-├── .gitignore
-├── .nojekyll
-└── README.md
+├── public/
+│   ├── images/              # Project screenshots (16:9 ratio)
+│   │   ├── timechat.png
+│   │   ├── finassist.png
+│   │   ├── agentshield.png
+│   │   └── portfolio.png
+│   ├── favicon.svg          # Custom SVG favicon ("m.")
+│   └── resume.pdf           # Place your actual resume PDF here
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx       # Sticky nav with mobile hamburger menu
+│   │   ├── Hero.jsx         # Typography-first hero with availability dot & socials
+│   │   ├── About.jsx        # Concise editorial about section
+│   │   ├── Education.jsx    # Academic card with CGPA pill & coursework tags
+│   │   ├── Skills.jsx       # 2-column tech stack categorized by domain
+│   │   ├── Projects.jsx     # Selected projects with 16:9 media & details
+│   │   ├── Achievement.jsx  # Highlighted milestone card (AgentShield Award)
+│   │   ├── Leadership.jsx   # Timeline of IIC-UMIT leadership roles
+│   │   ├── Certifications.jsx # Certificate cards with badges
+│   │   ├── Contact.jsx      # Direct email CTA & social links
+│   │   ├── Footer.jsx       # Copyright & back-to-top button
+│   │   └── SocialIcons.jsx  # Accessible, matching SVG icons
+│   ├── data/
+│   │   └── portfolio.js     # Central data file for all content
+│   ├── App.jsx              # Main application layout & resume handling
+│   ├── App.css              # Section, card, button, and responsive styling
+│   ├── index.css            # CSS variables, typography, and reset
+│   └── main.jsx             # React entry point
+├── index.html               # Semantic HTML with Google Fonts & metadata
+├── vite.config.js           # Vite configuration
+└── package.json             # Minimal dependencies (React, Vite, Lucide)
 ```
 
-## Included content
+---
 
-- Education at UMIT, Sathaye College, and St. Mary's High School
-- First Prize for AgentShield, cumulative CGPA, and Embedded Systems minor
-- Languages, frameworks, tools, technologies, and engineering concepts
-- TimeChat, FinAssist AI, LabelLens, Personal Portfolio Website, and AgentShield
-- Social Media and Marketing Head and IIC Representative leadership roles
-- Eight core Computer Engineering subjects plus Embedded Systems coursework
-- GitHub, LinkedIn, LeetCode, email, phone, and downloadable resume
+## ✏️ How to Customize
 
-The Contact section shows the email address and LinkedIn handle as selectable, non-interactive text. GitHub, LeetCode, and phone retain their existing links. The hero's professional-profile shortcuts remain available.
+### 1. Updating Personal Information
+All personal details, social URLs, coursework, skills, leadership positions, and project descriptions are stored in a single central file:
+👉 **`src/data/portfolio.js`**
 
-Unavailable project URLs are displayed as pending rather than linked to invented destinations. FinAssist AI is described as a proposed evidence-aware architecture without claiming production readiness. AgentShield is labeled as a group project.
+You can easily update:
+- Name, bio, and academic details (CGPA, graduation year).
+- GitHub, LinkedIn, LeetCode, and email addresses.
+- Project descriptions, key features, and technology tags.
+- Skills and tool categories.
 
-## Run locally
+### 2. Adding Project Screenshots
+Place your 16:9 screenshots inside the **`public/images/`** directory:
+- `timechat.png` — TimeChat project screenshot
+- `finassist.png` — FinAssist AI project screenshot
+- `agentshield.png` — AgentShield project screenshot
+- `portfolio.png` — Portfolio website screenshot
 
-Open `index.html` directly, or serve the project from this folder:
+> **Note:** If a screenshot has not yet been placed, the website automatically displays a clean, tasteful pastel placeholder with the project's name and Lucide icon. No broken image icon will ever appear.
 
-```powershell
-python -m http.server 8000
+### 3. Adding Your Resume PDF
+Place your resume PDF inside the **`public/`** directory and name it:
+👉 **`public/resume.pdf`**
+
+- Clicking **Resume** in the navigation bar will open `resume.pdf` in a new tab.
+- Clicking **Download resume** in the Hero section will download it as `Maithilee_Bhatkar_Resume.pdf`.
+- If the file is not yet uploaded, clicking either button displays a polite in-app toast notification instead of opening a broken 404 link.
+
+---
+
+## 🌐 Deploying to Vercel
+
+This portfolio is a static Single Page Application (SPA) built with Vite and is ready for one-click deployment on [Vercel](https://vercel.com):
+
+### Option A: Via Vercel Dashboard (Recommended)
+1. Push this repository to your GitHub account (`https://github.com/maithilee17/portfolio`).
+2. Log into [vercel.com](https://vercel.com) and click **"Add New Project"**.
+3. Import your GitHub repository.
+4. Vercel automatically detects **Vite**:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. Click **"Deploy"**.
+
+### Option B: Via Vercel CLI
+```bash
+npm i -g vercel
+vercel
 ```
 
-Then open <http://localhost:8000>. Stop the server with `Ctrl+C`.
+---
 
-## Content maintenance
-
-- Edit `index.html` for biography, education, achievements, projects, leadership, coursework, links, and metadata.
-- Edit `css/style.css` for colors, typography, spacing, cards, layouts, and responsive behavior.
-- Edit `js/script.js` for navigation, project filtering, reveal effects, and contact-form validation.
-- Store project artwork and the profile photograph in `images/`. Update image dimensions and alt text when replacing an image.
-- Replace `resume/Maithilee-Resume.pdf` with the latest verified PDF while keeping the filename unchanged.
-- Replace a `pending-link` element only after a genuine repository or live-demo URL is available.
-
-## Contact form behavior
-
-The contact form is intentionally frontend-only. It validates fields locally and includes a hidden honeypot as basic spam protection, but it does not send or store messages. Its ready-state message directs visitors to use the displayed email address and never claims submission succeeded.
-
-To enable message delivery later, connect a verified form service or backend, document its privacy behavior, and replace the local-only submit handler only after testing the real response states.
-
-## Deployment
-
-The verified public deployment is hosted at the Sites URL above. The source is also maintained in GitHub on the `main` branch. All assets use relative paths, so GitHub Pages can also host the repository after Pages is enabled in **Settings > Pages > Deploy from a branch > main > / (root)**.
-
-### Custom domain status
-
-The verified Sites URL remains the canonical URL until a custom domain is purchased, attached, validated, and serving HTTPS successfully. The current host supports custom domains and supplies the exact apex A records or subdomain CNAME plus validation records after a hostname is added. No domain purchase or DNS change is performed by this repository.
-
-For a future `maithileebhatkar.com` setup:
-
-1. Purchase the domain from a registrar after confirming its checkout availability.
-2. Explicitly authorize adding the root hostname and, if wanted, `www` to the existing Sites project.
-3. Add only the A/CNAME and validation records returned by the hosting provider to the registrar's DNS panel.
-4. Wait for the host to report the domain and managed SSL certificate as active.
-5. Choose the root domain as canonical and redirect `www` to it (or choose the reverse, but use one canonical origin).
-6. Replace the current Sites URL in `index.html`, `sitemap.xml`, `robots.txt`, and the Personal Portfolio project link, then publish and verify again.
-
-Do not switch canonical metadata to an unverified hostname, because doing so would point search engines to a URL that may not work.
-
-For future updates:
-
-```powershell
-git status
-git diff
-git add index.html css/style.css js/script.js images resume README.md
-git diff --cached
-git commit -m "Update portfolio"
-git push origin main
-```
-
-Stage only intended files. Never commit passwords, API keys, access tokens, `.env` files, private keys, or unrelated personal documents. Anything committed to this public repository—including the resume and contact details—can be viewed or copied by others.
-
-After pushing to GitHub:
-
-1. Verify the commit on the repository's `main` branch.
-2. If GitHub Pages has been enabled, wait for its Pages deployment to finish.
-3. For the connected Sites deployment, rebuild the `dist/` folder from the root files and publish a new Site version.
-4. Open the applicable public URL and verify navigation, project filters, external links, images, and the resume download.
-
-## Pre-publishing checklist
-
-- [ ] Confirm education, CGPA, percentages, award date, and leadership dates.
-- [ ] Confirm every project description distinguishes implemented and proposed work.
-- [ ] Verify genuine GitHub and live-demo links only.
-- [ ] Proofread and replace the resume PDF when updated.
-- [ ] Test project filtering, mobile navigation, keyboard focus, and contact validation.
-- [ ] Check the page at desktop, tablet, and 375px mobile widths.
-- [ ] Confirm there are no browser console errors or missing local assets.
+## 🎨 Design Philosophy
+- **Colors**: Warm neutral background (`#FAFAF9`), clean white cards (`#FFFFFF`), dark charcoal primary text (`#18181B`), and selective indigo accents (`#4F46E5`).
+- **Typography**: 
+  - **Plus Jakarta Sans** for prominent headings.
+  - **Inter** for readable body copy, navigation, and descriptions.
+  - **JetBrains Mono** for numbered section labels (`01 / ABOUT ME`) and categories.
+- **Lightweight**: Zero external UI frameworks, zero heavy animation libraries, and zero runtime overhead.
